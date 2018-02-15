@@ -8,23 +8,52 @@ namespace sales501
 {
     class UI
     {
-        static void Main(string[] args)
+        public UI()
         {
-            
-            Console.WriteLine("Welcome to use sales501 Sysytem. \nMain:");
-            Console.WriteLine("1) Create sale transaction.");
-            Console.WriteLine("2) Return item(s).");
-            Console.WriteLine("3) Enter rebate.");
-            Console.WriteLine("4) Generate rebate check.");
-            Console.WriteLine("5) Exit System.");
-            Console.Write("Please select a task 1-5: ");
-            string s = Console.ReadLine();
-            int choose;
-            choose = Int32.Parse(s);
-            if(choose == 1)
+            mainUI();
+        }
+
+        private static void mainUI()
+        {
+            int input;
+            do
             {
-                UIofCreateSaleTrasaction();
-            }
+                Console.WriteLine("Welcome to use sales501 Sysytem. \nMain:");
+                Console.WriteLine("1) Create sale transaction.");
+                Console.WriteLine("2) Return item(s).");
+                Console.WriteLine("3) Enter rebate.");
+                Console.WriteLine("4) Generate rebate check.");
+                Console.WriteLine("5) Exit System.");
+                do
+                {
+                    Console.Write("Please select a task 1-5: ");
+                    string s = Console.ReadLine();
+                
+                    input = Int32.Parse(s);
+                    if (input == 1)
+                    {
+                        UIofCreateSaleTrasaction();
+                    }
+                    else if(input == 2)
+                    {
+                        UIofReturnitems();
+                    }
+                    else if(input == 3)
+                    {
+                        UIofAddRebate();
+                    }
+                    else if(input == 4)
+                    {
+                        UIofGenerateRebateCheck();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Tanks for using our system.\n System Exiting...");
+                    }
+                } while (input != 1 && input != 2 && input != 3 && input != 4 && input != 5);
+               
+            } while (input != 5);
+            
         }
 
         private static void UIofCreateSaleTrasaction()
@@ -46,8 +75,8 @@ namespace sales501
                     string email = Console.ReadLine();
                     string input;
                     int count = 1;
-                    List <string> items = new List<string>();
-                    List<int> cost = new List<int>();
+                    List<string> items = new List<string>();
+                    List<double> cost = new List<double>();
                     do
                     {
                         Console.Write("Enter your #" + count + " item: ");
@@ -55,12 +84,12 @@ namespace sales501
                         items.Add(input);
                         Console.Write("Enter the cost of your #" + count + " item: $");
                         input = Console.ReadLine();
-                        cost.Add(Int32.Parse(input));
+                        cost.Add(Convert.ToDouble(input));
                         do
                         {
                             Console.Write("Would you like to add another item?(y/n)");
                             input = Console.ReadLine().ToLower();
-                        } while (input != "n" && input != "y");
+                        } while (confirm(input));
                         count++;
                     } while (input == "y");
 
@@ -70,36 +99,69 @@ namespace sales501
                     Console.WriteLine("Address: " + address);
                     Console.WriteLine("Email: " + email);
 
+                    double total = 0.0;
                     Console.WriteLine("Item(s) purchased: ");
-                    for(int i = 0; i < items.Count; i++)
+                    for (int i = 0; i < items.Count; i++)
                     {
                         Console.WriteLine("#" + (i + 1) + " item " + items[i] + " and Cost: $" + cost[i]);
+                        total += cost[i];
                     }
+                    Console.WriteLine("Total is: $" + total);
 
                     do
                     {
                         Console.Write("\nTransaction Confirm(y/n): ");
                         input = Console.ReadLine().ToLower();
-                    } while (input != "y" && input != "n");
+                    } while (confirm(input));
 
-                    if(input == "y")
+                    if (input == "y")
                     {
-
+                        Transaction tran = new Transaction(firstName, lastName, address, email, items, cost);
+                        int id = tran.IDGenerator();
+                        DataBase db = new DataBase(id, tran);
+                        Console.WriteLine("Transaction completed!");
                     }
                     else
                     {
                         Console.WriteLine("Transaction cancelled!");
                     }
+
+                    do
+                    {
+                        Console.Write("Would you like to add another transaction?(y/n) ");
+                        input = Console.ReadLine();
+                    } while (confirm(input));
+                    if(input == "n")
+                    {
+                        back = true;
+                    }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Console.WriteLine(e.ToString());
                     Console.WriteLine("Error! Back to top.");
                 }
-            } while (back == true);
-            
-            
+            } while (back == false);
+        }
 
+        private static void UIofReturnitems()
+        {
+
+        }
+
+        private static void UIofAddRebate()
+        {
+
+        }
+
+        private static void UIofGenerateRebateCheck()
+        {
+
+        }
+        private static bool confirm(string input)
+        {
+            if (input == "y" || input == "n") return false;
+            else return true;
         }
     }
 }
