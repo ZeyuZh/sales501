@@ -16,9 +16,11 @@ namespace sales501
         private static void mainUI()
         {
             int input;
+            Console.WriteLine("Welcome to use sales501 Sysytem.");
+            
             do
             {
-                Console.WriteLine("Welcome to use sales501 Sysytem. \nMain:");
+                Console.WriteLine("Main:");
                 Console.WriteLine("1) Create sale transaction.");
                 Console.WriteLine("2) Return item(s).");
                 Console.WriteLine("3) Enter rebate.");
@@ -48,7 +50,7 @@ namespace sales501
                     }
                     else
                     {
-                        Console.WriteLine("Tanks for using our system.\n System Exiting...");
+                        Console.WriteLine("Tanks for using our system.\nSystem Exiting...");
                     }
                 } while (input != 1 && input != 2 && input != 3 && input != 4 && input != 5);
                
@@ -116,9 +118,11 @@ namespace sales501
 
                     if (input == "y")
                     {
-                        Transaction tran = new Transaction(firstName, lastName, address, email, items, cost);
-                        int id = tran.IDGenerator();
+                        Transaction tran = new Transaction(firstName, lastName, address, email, items, cost,total);
+                        int id = Transaction.IDGenerator();
+                        Console.WriteLine("Your ID number is : " + Transaction.IDFormat(id));
                         DataBase db = new DataBase(id, tran);
+                        
                         Console.WriteLine("Transaction completed!");
                     }
                     else
@@ -146,12 +150,84 @@ namespace sales501
 
         private static void UIofReturnitems()
         {
+            bool back = false;
+            do
+            {
+                try
+                {
+                    string input;
+                    Console.WriteLine("\nReturn item(s):");
+                    do
+                    {
+                        Console.Write("Enter the transaction ID you want to return: ");
+                        input = Console.ReadLine();
+                        int id = Int32.Parse(input);
+                        if (!DataBase.TransactionExist(id)) Console.WriteLine("This transaction does not exist.");
+                        else
+                        {
+                            Console.WriteLine("Here is the list of your items: ");
+                            Transaction tran = DataBase.GetTransaction(id);
+                            Console.WriteLine(tran.PrintItemsAndCost());
+                            do
+                            {
+                                Console.Write("Which item you would like to return? ");
+                                input = Console.ReadLine();
+                                Console.WriteLine(tran.ItemReturn(input));
+                                do
+                                {
+                                    Console.Write("Would you like to return another one?(y/n) ");
+                                    input = Console.ReadLine().ToLower();
+                                } while (confirm(input));
 
+                            } while (input == "y");
+                        }
+                        do
+                        {
+                            Console.Write("Would you like return another transaction? (y/n) ");
+                            input = Console.ReadLine().ToLower();
+                        } while (confirm(input));
+                    } while (input == "y");
+
+                    back = true;
+                }catch(Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                    Console.WriteLine("Error! Back to top.");
+                }
+            } while (back == false);
         }
 
         private static void UIofAddRebate()
         {
+            bool back = false;
+            do
+            {
+                try
+                {
+                    string input;
+                    Console.WriteLine("\nEnter Rebate: ");
+                    do
+                    {
+                        Console.Write("Enter transaction ID you want to add rebate: ");
+                        input = Console.ReadLine();
+                        int id = Int32.Parse(input);
+                        if (!DataBase.TransactionExist(id)) Console.WriteLine("This transaction does not exist.");
+                        else
+                        {
+                            Console.Write("Enter the amount you would like to rebate(ex: if rebate 10%, enter 10): ");
+                            input = Console.ReadLine();
+                            double rebate = Convert.ToDouble(input);
+                            Console.Write("Enter the expire date to rebate(MM/DD/YYYY)");
 
+                            Transaction tran = DataBase.GetTransaction(id);
+                        }
+                    } while ();
+                }catch(Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                    Console.WriteLine("Error! Back to top.");
+                }
+            } while ();
         }
 
         private static void UIofGenerateRebateCheck()
