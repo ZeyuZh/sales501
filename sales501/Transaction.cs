@@ -8,11 +8,9 @@ namespace sales501
 {
     class Transaction
     {
-      
+
         private static int _number = 0;
-        private double _total;
-        private double _costWithRebate = 0;
-        public Transaction(string fn, string ln, string add, string email, List<string> items, List<double> cost, double total)
+        public Transaction(string fn, string ln, string add, string email, List<string> items, List<double> cost, double total, int month, int day, int year)
         {
             firstName = fn;
             lastName = ln;
@@ -20,13 +18,15 @@ namespace sales501
             Email = email;
             Items = items;
             Cost = cost;
-            Rebate = false;
-            _total = total;
+            Total = total;
+            Month = month;
+            Day = day;
+            Year = year;
         }
 
         public static int IDGenerator()
         {
-            _number++; 
+            _number++;
             return _number;
         }
 
@@ -39,6 +39,12 @@ namespace sales501
             else format = "#" + id;
             return format;
         }
+        public int Month { get; set; }
+
+        public int Day { get; set; }
+
+        public int Year { get; set; }
+
         public string firstName { get; private set; }
 
         public string lastName { get; private set; }
@@ -51,50 +57,7 @@ namespace sales501
 
         public List<double> Cost { get; set; }
 
-        public bool Rebate { get;  set; }
-
-        public double CostWithRebate { get; set; }
-
-        public void minusRebate(double rebate, DateTime date)
-        {
-            if (Rebate)
-            {
-                Console.WriteLine("It was already rebated before, it will be replaced by new rebate.");
-            }
-            Rebate = true;
-            CostWithRebate = _total * rebate / 100;
-        }
-       
-        public string PrintItemsAndCost()
-        {
-            string str = "";
-            for(int i = 0; i < Cost.Count; i++)
-            {
-                if(Cost[i] == 0)
-                {
-                    str += "#" + (i + 1) + " item " + Items[i] + ": Returned.\n";
-                }
-                else
-                {
-                    str += "#" + (i + 1) + " item " + Items[i] + " and Cost: $" + Cost[i] + "\n";
-                }
-            }
-            return str;
-        }
-
-        public string ItemReturn(string item)
-        {
-            int count = 0;
-            foreach(string s in Items)
-            {
-                if(s == item)
-                {
-                    Cost[count] = 0;
-                    return "Item returned.";
-                }
-                count++;
-            }
-            return "Item does not exist.";
-        }
+        public double Total { get; set; }
+    
     }
 }

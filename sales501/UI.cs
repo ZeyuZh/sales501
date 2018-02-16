@@ -8,7 +8,7 @@ namespace sales501
 {
     class UI
     {
-        public UI()
+        public static void startUI()
         {
             mainUI();
         }
@@ -20,7 +20,7 @@ namespace sales501
             
             do
             {
-                Console.WriteLine("Main:");
+                Console.WriteLine("\nMain:");
                 Console.WriteLine("1) Create sale transaction.");
                 Console.WriteLine("2) Return item(s).");
                 Console.WriteLine("3) Enter rebate.");
@@ -48,13 +48,13 @@ namespace sales501
                     {
                         UIofGenerateRebateCheck();
                     }
-                    else
+                    else if (input == 5)
                     {
                         Console.WriteLine("Tanks for using our system.\nSystem Exiting...");
                     }
                 } while (input != 1 && input != 2 && input != 3 && input != 4 && input != 5);
                
-            } while (input != 5);
+            } while (input < 5);
             
         }
 
@@ -65,7 +65,7 @@ namespace sales501
             {
                 try
                 {
-                    Console.WriteLine("Create sale transaction: ");
+                    Console.WriteLine("\nCreate sale transaction: ");
                     Console.WriteLine("Please fill out all information below to complete transaction.");
                     Console.Write("First name:");
                     string firstName = Console.ReadLine();
@@ -75,7 +75,22 @@ namespace sales501
                     string address = Console.ReadLine();
                     Console.Write("Email:");
                     string email = Console.ReadLine();
+                    bool redo = false;
                     string input;
+                    string[] date;
+                    do {
+                        Console.Write("Date of today(MM/DD/YYYY): ");
+                        input = Console.ReadLine();
+                        date = input.Split('/');
+                        if (!checkDateformat(Int32.Parse(date[0]), Int32.Parse(date[1]), Int32.Parse(date[2])))
+                        {
+                            Console.WriteLine("Date invalid!");
+                            redo = true;
+                        }
+                        else redo = false;
+                    } while (redo);
+
+
                     int count = 1;
                     List<string> items = new List<string>();
                     List<double> cost = new List<double>();
@@ -96,6 +111,7 @@ namespace sales501
                     } while (input == "y");
 
                     Console.WriteLine("\nTransaction: ");
+                    Console.WriteLine("Date: " + date[0] + "/" + date[1] + "/" + date[2]);
                     Console.WriteLine("First name: " + firstName);
                     Console.WriteLine("Last name: " + lastName);
                     Console.WriteLine("Address: " + address);
@@ -118,16 +134,16 @@ namespace sales501
 
                     if (input == "y")
                     {
-                        Transaction tran = new Transaction(firstName, lastName, address, email, items, cost,total);
+                        Transaction tran = new Transaction(firstName, lastName, address, email, items, cost,total,Int32.Parse(date[0]), Int32.Parse(date[1]), Int32.Parse(date[2]));
                         int id = Transaction.IDGenerator();
                         Console.WriteLine("Your ID number is : " + Transaction.IDFormat(id));
-                        DataBase db = new DataBase(id, tran);
+                        DataBase.AddTransaction(id, tran);
                         
-                        Console.WriteLine("Transaction completed!");
+                        Console.WriteLine("Transaction completed!\n");
                     }
                     else
                     {
-                        Console.WriteLine("Transaction cancelled!");
+                        Console.WriteLine("Transaction cancelled!\n");
                     }
 
                     do
@@ -156,30 +172,49 @@ namespace sales501
                 try
                 {
                     string input;
+                    
                     Console.WriteLine("\nReturn item(s):");
                     do
                     {
+                        bool redo = false;
+                        string[] date;
+                        do
+                        {   
+                            Console.Write("Date of today(MM/DD/YYYY): ");
+                            input = Console.ReadLine();
+                            date = input.Split('/');
+                            if (!checkDateformat(Int32.Parse(date[0]), Int32.Parse(date[1]), Int32.Parse(date[2])))
+                            {
+                                Console.WriteLine("Date invalid!");
+                                redo = true;
+                            }
+                            else redo = false;
+                        } while (redo);
                         Console.Write("Enter the transaction ID you want to return: ");
                         input = Console.ReadLine();
                         int id = Int32.Parse(input);
                         if (!DataBase.TransactionExist(id)) Console.WriteLine("This transaction does not exist.");
                         else
                         {
-                            Console.WriteLine("Here is the list of your items: ");
                             Transaction tran = DataBase.GetTransaction(id);
-                            Console.WriteLine(tran.PrintItemsAndCost());
-                            do
+                            if (!ReturnItems.ReturnAllowed(id, Int32.Parse(date[0]), Int32.Parse(date[2]))) Console.WriteLine("This transaction has been rebated, so it cannot return.");
+                            else
                             {
-                                Console.Write("Which item you would like to return? ");
-                                input = Console.ReadLine();
-                                Console.WriteLine(tran.ItemReturn(input));
+                                Console.WriteLine("Here is the list of your items: ");
+                                Console.WriteLine(DataBase.PrintItemsAndCost(id));
                                 do
                                 {
-                                    Console.Write("Would you like to return another one?(y/n) ");
-                                    input = Console.ReadLine().ToLower();
-                                } while (confirm(input));
+                                    Console.Write("Which item you would like to return? (Please type the name of the item)");
+                                    input = Console.ReadLine();
+                                    ReturnItems re = new ReturnItems(id, input);
+                                    do
+                                    {
+                                        Console.Write("Would you like to return another one?(y/n) ");
+                                        input = Console.ReadLine().ToLower();
+                                    } while (confirm(input));
 
-                            } while (input == "y");
+                                } while (input == "y");
+                            }
                         }
                         do
                         {
@@ -214,29 +249,75 @@ namespace sales501
                         if (!DataBase.TransactionExist(id)) Console.WriteLine("This transaction does not exist.");
                         else
                         {
-                            Console.Write("Enter the amount you would like to rebate(ex: if rebate 10%, enter 10): ");
-                            input = Console.ReadLine();
-                            double rebate = Convert.ToDouble(input);
-                            Console.Write("Enter the expire date to rebate(MM/DD/YYYY)");
+                            if (DataBase.GetTransaction(id).Month != 6) Console.WriteLine("This transaction is not established on June.");
+                            else
+                            {
+                                bool redo = false;
+                                string[] date;
+                                do
+                                {
+                                    Console.Write("Date of today(MM/DD/YYYY): ");
+                                    input = Console.ReadLine();
+                                    date = input.Split('/');
+                                    if (!checkDateformat(Int32.Parse(date[0]), Int32.Parse(date[1]), Int32.Parse(date[2])))
+                                    {
+                                        Console.WriteLine("Date invalid!");
+                                        redo = true;
+                                    }
+                                    else redo = false;
+                                } while (redo);
 
-                            Transaction tran = DataBase.GetTransaction(id);
+
+                                if (Int32.Parse(date[0]) > 7) Console.WriteLine("Exceed the rebate date.");
+                                else if (Int32.Parse(date[0]) == 7 && Int32.Parse(date[1]) > 15) Console.WriteLine("Exceed the rebate date.");
+                                else if (!Rebate.RebateAllowed(id, Int32.Parse(date[2]))) Console.WriteLine("This transaction is not allowed to rebate!");
+                                else
+                                {
+                                    Console.Write("Enter the amount you would like to rebate(ex: if rebate 11%, enter 11): ");
+                                    input = Console.ReadLine();
+                                    double rebate = Convert.ToDouble(input);
+                                    Rebate reb = new Rebate(rebate, Int32.Parse(date[0]), Int32.Parse(date[1]), Int32.Parse(date[2]));
+                                    DataBase.AddRebate(id, reb);
+                                    Console.WriteLine("Rebate complete.");
+                                }
+                            }
+
+                            do
+                            {
+                                Console.Write("Would you like rebate another transaction? (y/n) ");
+                                input = Console.ReadLine().ToLower();
+                            } while (confirm(input));
                         }
-                    } while ();
-                }catch(Exception e)
+                    } while (input == "y");
+                    back = true;
+                }
+                catch (Exception e)
                 {
                     Console.WriteLine(e.ToString());
                     Console.WriteLine("Error! Back to top.");
                 }
-            } while ();
+            } while (back == false);
         }
 
         private static void UIofGenerateRebateCheck()
         {
-
+            Console.WriteLine("\nRebate Check(s): ");
+            Console.WriteLine(DataBase.GenerateRebateCheck());
+            Console.WriteLine("Press anything to continue.");
+            Console.ReadLine();
         }
         private static bool confirm(string input)
         {
             if (input == "y" || input == "n") return false;
+            else return true;
+        }
+
+        private static bool checkDateformat(int month, int day, int year)
+        {
+            if (month > 12) return false;
+            else if (day > 31) return false;
+            else if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) return false;
+            else if (month == 2 && day > 28) return false;
             else return true;
         }
     }

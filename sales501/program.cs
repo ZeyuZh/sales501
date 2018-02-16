@@ -10,8 +10,7 @@ namespace sales501
     {
         static void Main(string[] args)
         {
-            UI ui = new UI();
-            Console.WriteLine();
+            UI.startUI();
         }
     }
 }
