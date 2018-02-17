@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 namespace sales501
 {
-    class UI
+    public class UI
     {
+        /// <summary>
+        /// start the application
+        /// </summary>
         public static void startUI()
         {
             mainUI();
         }
 
+        /// <summary>
+        /// the main menu which can interact with Users
+        /// </summary>
         private static void mainUI()
         {
             int input;
@@ -58,6 +64,9 @@ namespace sales501
             
         }
 
+        /// <summary>
+        /// the create transaction menu which can interact with Users
+        /// </summary>
         private static void UIofCreateSaleTrasaction()
         {
             bool back = false;
@@ -164,6 +173,9 @@ namespace sales501
             } while (back == false);
         }
 
+        /// <summary>
+        /// the return items menu which can interact with Users
+        /// </summary>
         private static void UIofReturnitems()
         {
             bool back = false;
@@ -232,6 +244,9 @@ namespace sales501
             } while (back == false);
         }
 
+        /// <summary>
+        /// the Enter rebate menu which can interact with Users
+        /// </summary>
         private static void UIofAddRebate()
         {
             bool back = false;
@@ -299,6 +314,9 @@ namespace sales501
             } while (back == false);
         }
 
+        /// <summary>
+        /// the generate rebate check menu which can interact with Users
+        /// </summary>
         private static void UIofGenerateRebateCheck()
         {
             Console.WriteLine("\nRebate Check(s): ");
@@ -306,12 +324,25 @@ namespace sales501
             Console.WriteLine("Press anything to continue.");
             Console.ReadLine();
         }
+        
+        /// <summary>
+        /// which is a easier way to check whether user enters y and n or not
+        /// </summary>
+        /// <param name="input">the input user entered</param>
+        /// <returns> true or false for user input</returns>
         private static bool confirm(string input)
         {
             if (input == "y" || input == "n") return false;
             else return true;
         }
 
+        /// <summary>
+        /// check date format user entered
+        /// </summary>
+        /// <param name="month"> the month user entered</param>
+        /// <param name="day"> the day user entered</param>
+        /// <param name="year"> the year user entered</param>
+        /// <returns> true or false for user input</returns>
         private static bool checkDateformat(int month, int day, int year)
         {
             if (month > 12) return false;

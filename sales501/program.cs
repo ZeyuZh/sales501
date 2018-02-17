@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace sales501
 {
-    class program
+    public class program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// start program
+        /// </summary>
+        /// <param name="args"></param>
+        public static void Main(string[] args)
         {
             UI.startUI();
         }

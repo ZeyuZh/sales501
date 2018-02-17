@@ -6,21 +6,43 @@ using System.Threading.Tasks;
 
 namespace sales501
 {
-    class DataBase
+    public class DataBase
     {
+        /// <summary>
+        /// the dictionary of transactions
+        /// </summary>
         private static Dictionary<int, Transaction> _DBofTransaction = new Dictionary<int, Transaction>();
         
+        /// <summary>
+        /// the dictionary of rebated transactions
+        /// </summary>
         private static Dictionary<int, Rebate> _DBofRebate = new Dictionary<int, Rebate>();
+
+        /// <summary>
+        /// add new transaction to database
+        /// </summary>
+        /// <param name="id"> the id of transaction</param>
+        /// <param name="tran"> the transaction we would like to add</param>
         public static void AddTransaction(int id, Transaction tran)
         {
             _DBofTransaction.Add(id, tran);
         }
 
+        /// <summary>
+        /// add new rebate to database
+        /// </summary>
+        /// <param name="id"> the id of rebated transaction</param>
+        /// <param name="reb"> the rebate we would like to add for this transaction</param>
         public static void AddRebate(int id, Rebate reb)
         {
             _DBofRebate.Add(id, reb);
         }
 
+        /// <summary>
+        /// Check the ID if it exists or not in DataBase.
+        /// </summary>
+        /// <param name="id">the id we want to check</param>
+        /// <returns> true or false for the existence of transaction</returns>
         public static bool TransactionExist(int id)
         {
             foreach(int i in _DBofTransaction.Keys)
@@ -33,6 +55,11 @@ namespace sales501
             return false;
         }
 
+        /// <summary>
+        /// get transaction from DataBase
+        /// </summary>
+        /// <param name="id"> the id of transaction user would like to get</param>
+        /// <returns>the transaction user looks for</returns>
         public static Transaction GetTransaction(int id)
         {
             if (!TransactionExist(id))
@@ -45,6 +72,11 @@ namespace sales501
             }
         }
 
+        /// <summary>
+        /// . Check the existence of the ID of rebate in DataBase
+        /// </summary>
+        /// <param name="id">the id user wants to check</param>
+        /// <returns>true or false of the existence of rebate</returns>
         public static bool RebateExist(int id)
         {
             foreach(int i in _DBofRebate.Keys)
@@ -57,6 +89,11 @@ namespace sales501
             return false;
         }
 
+        /// <summary>
+        /// get the rebate from given ID
+        /// </summary>
+        /// <param name="id">the ID of the rebate users look for</param>
+        /// <returns> the rebate user looks for</returns>
         public static Rebate GetRebate(int id)
         {
             if (!RebateExist(id))
@@ -68,6 +105,12 @@ namespace sales501
                 return _DBofRebate[id];
             }
         }
+
+        /// <summary>
+        /// print the items and cost from the given ID
+        /// </summary>
+        /// <param name="id">the ID of transaction user wants to print</param>
+        /// <returns>the content user wants to print</returns>
         public static string PrintItemsAndCost(int id)
         {
             Transaction tran = GetTransaction(id);
@@ -85,7 +128,10 @@ namespace sales501
             }
             return str;
         }
-
+        /// <summary>
+        /// generate the rebate check
+        /// </summary>
+        /// <returns>the content for rebate transaction</returns>
         public static string GenerateRebateCheck()
         {
             string check = "";

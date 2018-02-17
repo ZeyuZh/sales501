@@ -1,0 +1,1031 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="b67196fb-5f61-436d-82d2-62062a6d2032" name="sales501" linkedPackageId="52eebd5c-df7c-42d8-a104-2135d742fb74" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="ea44e71f-8644-4d3c-b0cb-3f93b6c7b7c8">
+      <profileInstance Id="7314869a-73a6-47da-84be-3127e2e6f557" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="fad7a71b-9d8c-43af-89e5-48c1fa391566">
+      <profileInstance Id="99e1c3e1-f5ed-41cf-b62a-0aceb53e004c" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="47a25f0f-524f-4a34-a3f5-e999855267bb" name="DataBase" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3e6dad72-df27-42b0-b9d3-57d609620e05" />
+        <ownedAttributesInternal>
+          <property Id="2e18baad-9516-49af-b2cd-4e2a4b697ace" name=" _DBofTransaction" visibility="Private" isLeaf="false" isStatic="true" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e3eac2d3-51cf-4c78-b4da-247cc4ca89b7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d87bb544-08ab-41d9-92f1-731daa43a466" LastKnownName="Dictionary&lt;Integer, Transaction&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="9f8bfad6-afde-4c15-b935-f64545c7b14d" name="_DBofRebate" visibility="Private" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f045839d-f2b8-4f39-9bad-c6d09a948ec4" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="de97b149-e8a2-4cf8-8a70-9358a5b166ae" LastKnownName="Dictionary&lt;int, Rebate&gt;" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="327a6bdc-b30c-44fc-a310-0eab16d16502" name="AddTransaction" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c841d17c-e33a-48ac-97e5-18691038f85b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d4f51805-761a-4193-98e8-d014341aa432" name="id" direction="In">
+                  <elementDefinition Id="88b1769b-49c2-4afb-bdfd-2c6f723105e6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="64133fa6-c390-4b46-9b60-1fee70fb20fe" name="tran" direction="In">
+                  <elementDefinition Id="20324d98-2409-4bcf-a8da-b5eeefcd2f71" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="eb401a74-cc5b-4ffa-8bf3-28944e4e216e" LastKnownName="Transaction" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="79bb1a06-412b-4850-8d22-36c4bc51d829" name="AddRebate" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e3eba8b1-b87d-4c28-947e-2f0eb9ed08cc" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="39de0e8d-a0c1-4728-aab1-89d34707b250" name="id" direction="In">
+                  <elementDefinition Id="14582b19-c1ce-466d-b1fe-a41d57fe8050" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8c1188b8-03c7-4a4f-8625-d07cc44f33ef" name="reb" direction="In">
+                  <elementDefinition Id="d0c71a9e-94ea-417c-a02b-fa5278feecbd" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="cd858edf-394f-40cd-a187-dffea49e2ecc" LastKnownName="Rebate" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="e88f93b0-baa6-4065-bca2-0bf54b893bff" name="TransactionExist" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4e6fabde-5452-46a1-8200-162f2d0a90ce" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ddb6d846-3081-41e4-855b-b9f0f24945f6" direction="Return">
+                  <elementDefinition Id="76e18633-7e77-4a93-99b4-e2889c5f3fb4" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="61487574-dd6a-48d1-9cb0-cedb54f67701" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c6683df1-c7bc-4a4d-b02a-19f73a05127f" name="id" direction="In">
+                  <elementDefinition Id="8edbcd25-ed2d-4f84-b58d-5c3c73fb8183" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="1a9500e1-11d3-44b6-befb-d21e9b2fce7a" name="GetTransaction" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1ad9dd83-06db-4449-8c9f-4446a53bedf6" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d41a33ce-7ff7-44aa-af93-1ec259f7d102" direction="Return">
+                  <elementDefinition Id="bbcf185e-6bc6-481d-a678-a41245bebb86" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="90c29a33-8f96-4a96-9567-2189ed4e995f" LastKnownName="Transaction" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="9e1e17d3-732b-4fbc-9922-a051ec00a0c9" name="id" direction="In">
+                  <elementDefinition Id="7cf399e2-821a-48af-b5eb-1b401f5a0f24" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="56512127-504c-456f-8424-798a1ae34334" name="RebateExist" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="76991017-e91e-4ad4-83d2-94c7b6090377" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2ae2b047-d68d-4133-bd6e-294803293215" direction="Return">
+                  <elementDefinition Id="3c2687a4-7cc1-4106-ad18-03dce60808c7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="14e4ef3f-61a2-4d2c-99ff-7a2178f5f07d" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e14efc8f-a25e-492f-a620-cdbe26405b4f" name="id" direction="In">
+                  <elementDefinition Id="aeffeb81-479f-4ac7-aff1-7f54f5d1bfac" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="007d468d-a495-444b-ab53-4199b1616b02" name="GetRebate" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="de45e260-2202-47e5-85d8-582ce70f2345" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ea6335cc-cbad-4034-a442-f6ca06b0f15e" direction="Return">
+                  <elementDefinition Id="da050557-a872-4490-9f8f-0122b2b37ba5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b5353402-e043-4316-a7a4-83a8feb236f6" LastKnownName="Rebate" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e5790b23-306a-4ed3-83c7-458d089893a7" name="id" direction="In">
+                  <elementDefinition Id="2d9b7cc7-b690-4ed1-98da-793714e4b9aa" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="a72e006a-d343-4505-b930-a98cee13c856" name="PrintItemsAndCost" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="00b5f31b-8e0a-4c95-a4cc-241d2c0fed50" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3cf6f321-4688-4b92-9368-9ee190eafb97" direction="Return">
+                  <elementDefinition Id="9e7db44c-da73-4a68-b84a-01d315a2e145" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="47539656-d0d5-4b7d-ba23-f06c9e27bd42" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="87632577-e541-47db-b9ff-76af74f35015" name="id" direction="In">
+                  <elementDefinition Id="818dba8e-b0bd-4b78-9758-40d5a41ecc92" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="fa50823f-189f-4fd4-bb2a-768599cd2cd7" name="GenerateRebateCheck" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="48083b9a-6652-4c03-87f2-fab2b68721a3" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7d255c70-2fbb-4755-b848-f43bc10776e8" direction="Return">
+                  <elementDefinition Id="49c62dda-7928-48d0-9646-a0991762ae68" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c646fc58-d72a-4060-8d91-1ac577e5f899" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="03bbcf6e-6692-4338-a9c9-18c3f64e3c52" name="program" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a14c79fc-9b07-4396-b32e-e408c8ac39c0" />
+        <suppliersInternal>
+          <dependency Id="9cab5bc9-fbe6-41a7-907b-b26e6987588f">
+            <classMoniker Id="de9d93bf-38c1-46b4-8479-1bd4134a8290" LastKnownName="UI" />
+            <elementDefinition Id="58fc679b-07d4-4190-864c-7df6d0b80d38" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation Id="f61998fc-67c1-4ab5-a294-ccceff8aead3" name="Main" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c35cb5cb-8764-4e8b-b592-22b3d3efd890" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="73f5a8a4-f716-4612-a546-7b25009e5513" name="Rebate" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="1353d731-54a6-457f-9cd6-cd2dfab1806c" />
+        <targetEnds>
+          <association Id="8df5a1d2-4980-449d-80de-8bcca2b83708" isDerived="false" sourceEndRoleName="Rebate" targetEndRoleName="DataBase" isLeaf="false" isAbstract="false">
+            <classMoniker Id="47a25f0f-524f-4a34-a3f5-e999855267bb" LastKnownName="DataBase" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d8800985-9677-43ee-be93-aef00e121eec" name="Rebate" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f66fcf6b-68b0-412a-a657-a56a71ee1c3f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="81436b41-13d9-4b78-a720-062e7178c921" name="DataBase" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="aa059a26-eb26-40fd-9eb9-d8e034ebbd7f" name="Lower" value="1">
+                      <elementDefinition Id="258c2264-c915-4f76-a4ed-65c922eb252d" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="3730943d-dd4a-43db-b72c-d381f2689571" name="Upper" value="1">
+                      <elementDefinition Id="f6f3e498-ba23-459d-8145-7e0b68ce1026" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="960511ba-dd0b-49a3-bc3c-b09b53e089fc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ca36a72e-57a1-4988-93d0-46770a85dae6" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="8e5314c3-cd35-4e3e-8703-f3947fadb0bb" name="rebate" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2f325d08-bb22-4ff9-890a-364e8ea7eeac" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="bdff8113-9ce9-4c62-94bd-86c48dd1280d" LastKnownName="double" />
+            </type_NamedElement>
+          </property>
+          <property Id="aadeedfa-2c02-4b10-bbe5-80b5820ca7c5" name="Month" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4cc58a66-bcfc-4350-8f8b-c5255e13cd65" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d164acc7-0246-437e-9fee-7b081df264e8" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+          <property Id="a8686c76-abe7-4b9f-afb6-b64242e522fb" name="Day" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0eba1b69-95a1-4d4e-9897-5a989fe3545c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="2f9b2be5-5bb8-41aa-893c-320d87e20db5" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+          <property Id="26d50269-e5f9-4981-9e36-0c0a6c949167" name="Year" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6be8d33f-fcbd-4350-b389-4a549272c5e9" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="23842f1f-4cea-4483-a240-8546e753b999" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+          <property Id="0b5830a0-373e-45d4-9728-e628cd0500f3" name="CostWithRebate" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="02ccff5b-8efc-4996-a077-faf5f50e2831" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c9a77015-0589-4dc9-b029-2d6dcd8949e7" LastKnownName="double" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="2ca366b8-3edc-462b-b858-39183a389278" name="Rebate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f55891f5-c8d2-4679-ad53-4cefd26d7c88" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b04618a8-394e-4880-b671-e9886fed2d8f" name="r" direction="In">
+                  <elementDefinition Id="1da71f80-044f-4158-8771-d5ca5ac7657f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="68df3848-a605-488e-a9ad-1ce4c821f09c" LastKnownName="double" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="90a3d824-1063-4aab-87e4-344f54284c05" name="month" direction="In">
+                  <elementDefinition Id="3bd7310d-7180-4f33-b88a-acfaa1f53667" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e2bb38d8-178a-4ad0-b627-8697fed2ef22" name="day" direction="In">
+                  <elementDefinition Id="d0718e57-5c79-4772-9ad9-cc698d7f62fa" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a527a4ad-2d9c-4476-b3c4-50a4be305dc4" name="year" direction="In">
+                  <elementDefinition Id="a3e4657f-7d3c-4354-b9dd-6022812a4f49" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b5b0794d-ddae-497d-9a57-faa3a1064ec9" name="RebateAllowed" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="dc77ddcb-978f-4ec4-8d0b-44d138ee4228" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a33a0707-00ce-42f8-80d3-42e923c205eb" name="id" direction="In">
+                  <elementDefinition Id="6cd494c2-28e5-4110-af8a-37d126741957" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="34854178-c453-4361-94a2-7a4d2ffc8729" name="year" direction="In">
+                  <elementDefinition Id="34bb7ed7-5c66-4093-a0d1-515395e6cf95" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b39273a0-e973-4f94-b29d-9d0b08ee6872" direction="Return">
+                  <elementDefinition Id="b98dad6b-6d79-40a7-8149-f22c4c2ff51b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="62cf7085-7662-4e69-8d87-93b7da023f42" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="569d87d9-3162-4531-a8ae-67d4ce5c5656" name="minusRebate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="393e8347-ed3d-4a0a-83df-dbd679a46522" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="daf72880-e97c-4635-993c-5c85a48b2b3e" name="id" direction="In">
+                  <elementDefinition Id="e33aa197-c0fc-486c-9081-47d57eaf7ce0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="de9d93bf-38c1-46b4-8479-1bd4134a8290" name="UI" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="89ac416b-cf9d-4dd0-ad1b-3c65991db6eb" />
+        <targetEnds>
+          <association Id="c7057934-8de8-4ec7-b984-84eeb4435b36" isDerived="false" sourceEndRoleName="UI" targetEndRoleName="Transaction" isLeaf="false" isAbstract="false">
+            <classMoniker Id="a89f2806-dc71-4201-96f5-e6233acc17b7" LastKnownName="Transaction" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="79e1bc89-335a-4a37-b074-45b0155668cc" name="UI" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="40623e60-55ae-4461-8107-d01302a136d0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fdb4daef-31fd-4343-a30a-f88f0a14709a" name="Transaction" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="7b5590c4-a08a-4560-9f0f-cce6cf7f8816" name="Lower" value="*">
+                      <elementDefinition Id="57812378-9a8e-4187-aa64-2908b0066b33" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="298be36c-38a4-4196-84f7-e218caa8e41c" name="Upper" value="*">
+                      <elementDefinition Id="36f6a5d2-0b44-4d4b-aa90-43b4edf832f5" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="c0b01558-0e46-408c-9d6d-c3385274334b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8a52312a-dd68-49db-bd8c-ee1c10997787" />
+          </association>
+          <association Id="722e3ed9-8ab1-4e2e-9025-3a3f8b5b3ffe" isDerived="false" sourceEndRoleName="UI" targetEndRoleName="DataBase" isLeaf="false" isAbstract="false">
+            <classMoniker Id="47a25f0f-524f-4a34-a3f5-e999855267bb" LastKnownName="DataBase" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b8581cb2-9e7d-438c-8721-da346fef675b" name="UI" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6a60d229-ea69-490f-b911-5604cc881763" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="839ec122-4e47-483c-9903-17aac8e8a221" name="DataBase" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="02c4f26d-d906-4540-b776-aae9cc18abd7" name="Lower" value="1">
+                      <elementDefinition Id="f2c57ea4-44d8-4b00-b892-68628160d0b3" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="3c74f189-76dd-466b-a42f-8b8e75ca9f3f" name="Upper" value="1">
+                      <elementDefinition Id="30666ffd-7813-4cf4-9195-bf9e9613a81c" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="d26747c1-cdd4-48a2-a046-420ca9e63ce8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="990d9248-d012-464f-bfa6-0a65a8c452bd" />
+          </association>
+          <association Id="afd5ea6f-e74d-4697-8aab-0f789228c1b1" isDerived="false" sourceEndRoleName="UI" targetEndRoleName="ReturnItems" isLeaf="false" isAbstract="false">
+            <classMoniker Id="4de2b7e7-9125-4a4c-9887-174df69221f8" LastKnownName="ReturnItems" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8910eb6e-4b33-41ae-b770-abe64307da9f" name="UI" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="eb7a3047-7f12-47cb-955a-14ec6f555469" name="Lower" value="1">
+                      <elementDefinition Id="779f4c0a-86ec-4b57-82c6-7779436417e9" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="e193222c-593e-46b5-a58b-0788ae924082" name="Upper" value="1">
+                      <elementDefinition Id="7808f56a-e781-45e8-a02b-7c269ac92373" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="956bf8bd-ace0-41a6-96a8-8183503efffc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="038be8cc-e380-4909-a18b-7c03dc025f89" name="ReturnItems" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="1d446253-2e62-4bb9-9cbf-a4716ea9eb28" name="Lower" value="*">
+                      <elementDefinition Id="6f64ad34-4dfd-4205-a20f-03872a561049" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="78dc5695-34d7-4849-aa40-50ad91b29afb" name="Upper" value="*">
+                      <elementDefinition Id="b08d729d-67bb-4473-8582-7f9af08d3be6" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="426a6e70-aa87-4857-9cd9-f586d881a50a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8c9d1ee0-c0c6-49ff-bbce-0e30a585f513" />
+          </association>
+          <association Id="f63ff12e-ef6d-42af-9e5d-02b8160e0db7" isDerived="false" sourceEndRoleName="UI" targetEndRoleName="Rebate" isLeaf="false" isAbstract="false">
+            <classMoniker Id="73f5a8a4-f716-4612-a546-7b25009e5513" LastKnownName="Rebate" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6cb459ce-6a08-4177-aeac-1484822e5ad2" name="UI" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="632bb964-fd0e-45ea-8a8a-6845f36add2d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9c237f2a-ef48-4534-b47d-4ab984040b87" name="Rebate" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="df66851f-6985-40c4-bde9-c85b37a999eb" name="Lower" value="*">
+                      <elementDefinition Id="aa45c846-f18f-4660-a026-08a388a7f418" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="bf6ad564-2ad2-48e2-9e7e-cee200490011" name="Upper" value="*">
+                      <elementDefinition Id="00847e89-342c-4b76-b583-1a303826f831" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="9440549a-4827-431b-9f9e-7c04e7da5864" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="17142c88-38b4-48e8-860f-8e9a569980fb" />
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation Id="5c62c1c3-9b11-49b0-883b-2f3a2a71e917" name="startUI" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a86c2877-1bf6-4f06-b733-7d9463270369" />
+          </operation>
+          <operation Id="0b93ee36-ea1c-493a-9ed2-367a36b0c183" name="mainUI" visibility="Private" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c73e8213-e4ec-4861-b89a-540fd0ba970c" />
+          </operation>
+          <operation Id="88e4b58f-3771-4d8d-920f-aec62b28e222" name="UIofCreateSaleTrasaction" visibility="Private" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cbf90859-3d92-47ad-a436-4cd898755d8d" />
+          </operation>
+          <operation Id="cf3f2760-66ff-40bc-b71c-57f44c7ae0ce" name="UIofReturnitems" visibility="Private" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3a5f6ee3-3ef9-4305-b803-74a41f33463f" />
+          </operation>
+          <operation Id="eba82fc1-9ad8-4d87-8de8-5afe0ade111a" name="UIofAddRebate" visibility="Private" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7249ec4e-4b29-4923-87c8-015f12afef9d" />
+          </operation>
+          <operation Id="8a4c8f0b-9def-4e59-a026-89fa03abcb99" name="UIofGenerateRebateCheck" visibility="Private" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f441b272-6bd7-446e-b01e-63768b540681" />
+          </operation>
+          <operation Id="3837b188-ca45-4ed6-a529-e521c7e6b647" name="confirm" visibility="Private" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="92efda55-7d75-4963-bd40-be318811885e" />
+          </operation>
+          <operation Id="ce9d031d-5ff4-4d07-bdfe-3db9a6351d6c" name="checkDateformat" visibility="Private" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0a7a1bb4-b15b-4ae8-983d-105035aba589" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a89f2806-dc71-4201-96f5-e6233acc17b7" name="Transaction" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e8a2b9c9-b186-4e03-8928-b62547841546" />
+        <targetEnds>
+          <association Id="39349969-34f4-438f-8ad1-3ec5ff00bf83" isDerived="false" sourceEndRoleName="Transaction" targetEndRoleName="DataBase" isLeaf="false" isAbstract="false">
+            <classMoniker Id="47a25f0f-524f-4a34-a3f5-e999855267bb" LastKnownName="DataBase" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="993133eb-acc7-4a42-aa28-f25374763cc1" name="Transaction" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="acd2b7da-c155-4912-9669-6d7d0223cc52" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f95bb747-8b06-4824-9267-6e5e68a859ce" name="DataBase" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="bde7fa5f-4229-4c3c-babd-42580937812d" name="Lower" value="1">
+                      <elementDefinition Id="33e3433b-ec79-4eb9-af80-500fcb33820e" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="02c366ac-a603-4f5a-a929-eb29f333c9be" name="Upper" value="1">
+                      <elementDefinition Id="3b412050-9d05-4277-a08c-38b96f7a90a1" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="87788690-1f8c-47fa-b638-14a4a4e40c05" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1e7e6fea-3298-4794-80ad-f126e65e262d" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="0715695f-78aa-4b52-ac74-cad1959e16dd" name="_number" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d408735d-777b-4647-b940-2c8a5ee2cc9d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="19120412-72d1-4c48-bd07-f323d35f5236" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+          <property Id="55088cf1-a982-4576-a754-da4beca277e4" name="Month" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f4347936-f3f0-41ef-bfb9-6547270e8ef0" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="59308abf-75c1-4dab-a611-ffa8b8a4b77a" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+          <property Id="8a177235-ca38-4302-8b48-a606af26ae5d" name="Day" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="cd753644-47c5-4348-9f49-3dfd2afc4d77" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ae6f6a5a-b1cb-4226-8353-cd244ffb15c9" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+          <property Id="673d4c40-d4f9-4913-a4da-f5109a00e080" name="Year" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a7fe2907-c3c5-4a59-96f6-480d79225cc5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b7ce6654-9e93-4455-aeff-ec1fc028da4c" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+          <property Id="4e1f14b2-d92d-48e9-9cd2-97b45fd8bef7" name="firstName" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0864b4e2-4685-4836-b617-5fd61e4f7cfd" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6236fe4f-1415-406c-b87d-214554828fd0" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="9e3b43dc-e17e-42a4-850a-a024c976ebfe" name="lastName" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="697b9b71-732b-4b64-b000-a6e51fb7ee9e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="36afed19-82bd-4ea2-936d-64ef9f06c8af" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="901f5f00-f56e-4fe6-8c3e-f8428c959bf8" name="Address" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fcb40f85-174b-4464-a8b9-e0e608c5d0ee" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="cda52918-5f9a-42ac-8f54-800d18a421b8" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="7c19eed8-554e-4f0f-9266-8638c6374a7d" name="Email" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0559ec46-d247-4d79-aaf8-e7c5c7ce9c7d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="72b39a4d-37d2-4056-ad3b-4d7f1ffa061e" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="b5de2a65-4786-476d-a32a-de09c4e44659" name="Items" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1553a8a1-8e0c-4f4f-8d5f-1d2f11378f80" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="5b96dec9-ab0a-4564-9322-b5d93b965534" LastKnownName="List&lt;string&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="f776fd86-6d23-45a3-826f-7e8911442a1c" name="Cost" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5ec459a4-3877-4ea2-b73a-40f56d69afe3" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="25c7c4b6-4d24-4be3-8802-d193d5b3d488" LastKnownName="list&lt;double&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="a68158e8-dafc-45b0-91ba-66d6c93fe817" name="Total" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="77a0a264-0c83-4a63-85b9-7eb1cda51031" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="43646f0b-6c77-4d00-a0ce-1ac937755db3" LastKnownName="double" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="7fc171cd-a823-4e81-b8bc-c2c4652effcb" name="Transaction" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b178ecb8-fbb9-4399-a350-da2be068c76b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e364ac7d-b364-4a6d-b9f7-ca99b087c8aa" name="fn" direction="In">
+                  <elementDefinition Id="a67dbadb-f061-46df-b44c-c6daca34b164" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6626c68b-7c7f-4e62-b4d6-aa0bc2f2004c" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7f7569d6-5784-46b5-add1-feb39de3ee99" name="ln" direction="In">
+                  <elementDefinition Id="eb0dbd68-c0ee-447d-95a7-9d7fdab23668" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6626c68b-7c7f-4e62-b4d6-aa0bc2f2004c" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="994bbb54-9bce-4c05-8fa4-23748a54dc9d" name="add" direction="In">
+                  <elementDefinition Id="4d91a887-4949-44f5-afbd-c3ea54d8be07" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6626c68b-7c7f-4e62-b4d6-aa0bc2f2004c" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c081a70f-1200-439b-a687-072b90db415a" name="email" direction="In">
+                  <elementDefinition Id="f0df730f-e800-4809-8ae1-d99f625856a1" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6626c68b-7c7f-4e62-b4d6-aa0bc2f2004c" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0764758c-6c2b-4259-9389-1530ccbff351" name="items" direction="In">
+                  <elementDefinition Id="5de9b37f-4a50-4905-8d25-b58bdd83e40b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="5b96dec9-ab0a-4564-9322-b5d93b965534" LastKnownName="List&lt;string&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5ef35ad7-319d-4bc7-a78c-119b11a2ca32" name="cost" direction="In">
+                  <elementDefinition Id="83d6dcf1-48e9-41fa-838c-5ac543997366" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7ea83126-b4f9-477e-b8e5-09674886f258" LastKnownName="List&lt;double&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="400d128b-8696-4f6b-92a5-7c9ebb580777" name="total" direction="In">
+                  <elementDefinition Id="0fe5d96b-8f94-4fd4-b938-2b09ac4165d5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="68df3848-a605-488e-a9ad-1ce4c821f09c" LastKnownName="double" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="314be915-4901-4b3a-93cc-a099316042ad" name="month" direction="In">
+                  <elementDefinition Id="c9aa70fd-30c6-457f-beaa-7db613d9f2be" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="205b32c2-c1a7-4ea5-9824-7de6d00c4283" name="day" direction="In">
+                  <elementDefinition Id="f3c82226-d1e1-44dc-8f8f-b3bc63bcf925" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b6663339-a07c-4cd6-aa58-5e9f25f6b77e" name="year" direction="In">
+                  <elementDefinition Id="e9429cb7-fae1-48b7-a918-c676024c9bf8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="fddc673e-3e76-4f94-9a77-c70dcc4233f4" name="IDGenerator" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5b0954d9-9bd7-44f6-ae48-e24b3a1bd74e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3b992aa5-0e2f-4dbd-a9fb-7cbf9acfa402" direction="Return">
+                  <elementDefinition Id="06964474-3b2e-48d0-b60d-95387103840a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6012a2b0-c97c-41d0-917e-e7a070445bd0" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="41b195bc-0cb2-47e2-a6e2-76fa58ae0a7c" name="IDFormat" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="187fb584-dd2f-44cf-b464-f79d1256232d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="aa8d1c7e-6483-4a79-ac04-4fac850de56d" name="id" direction="In">
+                  <elementDefinition Id="b6870c68-cf55-4a29-bb34-3b20e30680ba" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="948f7f1e-ef19-4a6a-ad6c-2fc6b42634ed" direction="Return">
+                  <elementDefinition Id="ed5a78c7-e692-4173-81d7-c7a3e8c73641" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bf99d71a-ad71-4388-a60a-85b5d8c711e2" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4de2b7e7-9125-4a4c-9887-174df69221f8" name="ReturnItems" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e1a068e3-127b-480d-b394-8ee4a4153d31" />
+        <targetEnds>
+          <association Id="d9be73f4-9721-430d-a1d4-9ed7481e113f" isDerived="false" sourceEndRoleName="ReturnItems" targetEndRoleName="DataBase" isLeaf="false" isAbstract="false">
+            <classMoniker Id="47a25f0f-524f-4a34-a3f5-e999855267bb" LastKnownName="DataBase" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="246976a5-9fe3-48c5-bfca-fae95552acd6" name="ReturnItems" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e6bfeaa4-e536-4874-af4f-fd46010e0ea5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2d9705f6-8f46-459e-b6a2-fe39f4f3ad48" name="DataBase" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="8af565cb-4635-41b0-a4eb-6db1714484f9" name="Lower" value="1">
+                      <elementDefinition Id="740d1b71-daec-414a-8e58-9e1c5e418db0" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="25c4ed1a-b5e3-4acd-b924-6c053c0ef1ea" name="Upper" value="1">
+                      <elementDefinition Id="09e17ce3-f67d-4bd7-86ba-8a20a7623be8" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="1a2ade68-1770-4ba1-b995-53627d9181c7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e6e685ac-ba2e-44a1-9f94-eb962d918747" />
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation Id="3bd59ed9-b68a-458f-9588-14d542ab9676" name="ReturnItems" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cfb5e4e6-d1b5-44d5-8e73-735058084b8b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="323663e8-f9aa-4af3-b330-a406ba9e428a" name="id" direction="In">
+                  <elementDefinition Id="e39d008f-b66b-4a4c-9bda-f20c85df799c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6cb93d9b-e3f2-449b-b085-69dfaf3945c2" name="item" direction="In">
+                  <elementDefinition Id="f0fa8b8c-3170-44f5-a53c-4c6d1b3c4080" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6626c68b-7c7f-4e62-b4d6-aa0bc2f2004c" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6ab60777-70e9-49cf-81b0-dbd57f1f31af" name="ReturnAllowed" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ee7de4ec-a106-4549-97cb-15ead168247b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ba055c32-398d-4258-8c74-1a942435da9b" direction="Return">
+                  <elementDefinition Id="5e8d6ba3-6ae5-4f95-9b93-696a9f1e0afc" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e1867ed2-54ce-4daf-8851-7245da36521b" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c7a422ee-35a5-4064-8004-bb10e7cf9cf7" name="id" direction="In">
+                  <elementDefinition Id="f5ca7415-151a-4a9f-9161-5bb4b4fd4503" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e140437a-f939-4090-95ea-caa62ef7eae5" name="month" direction="In">
+                  <elementDefinition Id="96be16f5-10a6-4199-87f3-8e313d40a75d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4358c146-48fa-4797-9488-c72178aa6b2c" name="year" direction="In">
+                  <elementDefinition Id="3e370a32-222e-468e-b875-d5b614223ef0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="71e5d0fb-0b35-42ef-9159-5801b2867eb7" name="ItemReturned" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="00564e9e-cb41-4854-a250-2d92a5c7c004" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4ca357b0-ffb3-4966-8d42-e2fe1a1c98d5" direction="Return">
+                  <elementDefinition Id="10c7079b-29e8-48b8-982f-4890fbe0f981" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0d3194b2-8a37-44a3-a156-601d8cfef538" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cafd059d-40be-4aea-bb44-af25bf558eab" name="id" direction="In">
+                  <elementDefinition Id="2e41dd7c-785c-410a-8a8f-3dd15e1b63e7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d4e57065-430a-483e-bb98-585f5649545f" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="540f19b8-d9f7-4b68-8116-e40a555687a4" name="item" direction="In">
+                  <elementDefinition Id="19668641-936f-46e2-a898-901c46e5860b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6626c68b-7c7f-4e62-b4d6-aa0bc2f2004c" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="68df3848-a605-488e-a9ad-1ce4c821f09c" name="double" isAbstract="false" isLeaf="false" cachedFullName="double">
+        <elementDefinition Id="98c0acf2-b3e1-41d3-bbe0-3396e6dcef87" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d4e57065-430a-483e-bb98-585f5649545f" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="62cf7085-7662-4e69-8d87-93b7da023f42" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
+        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6626c68b-7c7f-4e62-b4d6-aa0bc2f2004c" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e1867ed2-54ce-4daf-8851-7245da36521b" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
+        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="0d3194b2-8a37-44a3-a156-601d8cfef538" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="19120412-72d1-4c48-bd07-f323d35f5236" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="59308abf-75c1-4dab-a611-ffa8b8a4b77a" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c9a77015-0589-4dc9-b029-2d6dcd8949e7" name="double" isAbstract="false" isLeaf="false" cachedFullName="double">
+        <elementDefinition Id="98c0acf2-b3e1-41d3-bbe0-3396e6dcef87" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="2f9b2be5-5bb8-41aa-893c-320d87e20db5" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d164acc7-0246-437e-9fee-7b081df264e8" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="bdff8113-9ce9-4c62-94bd-86c48dd1280d" name="double" isAbstract="false" isLeaf="false" cachedFullName="double">
+        <elementDefinition Id="98c0acf2-b3e1-41d3-bbe0-3396e6dcef87" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="23842f1f-4cea-4483-a240-8546e753b999" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ae6f6a5a-b1cb-4226-8353-cd244ffb15c9" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b7ce6654-9e93-4455-aeff-ec1fc028da4c" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6236fe4f-1415-406c-b87d-214554828fd0" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="36afed19-82bd-4ea2-936d-64ef9f06c8af" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="cda52918-5f9a-42ac-8f54-800d18a421b8" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="72b39a4d-37d2-4056-ad3b-4d7f1ffa061e" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="5b96dec9-ab0a-4564-9322-b5d93b965534" name="List&lt;string&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;string&gt;">
+        <elementDefinition Id="bb9cbc5b-c0d0-4eb9-9ee3-6eb1d4583d91" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="25c7c4b6-4d24-4be3-8802-d193d5b3d488" name="list&lt;double&gt;" isAbstract="false" isLeaf="false" cachedFullName="list&lt;double&gt;">
+        <elementDefinition Id="577603da-26a2-46ba-a895-ea416d33d391" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="43646f0b-6c77-4d00-a0ce-1ac937755db3" name="double" isAbstract="false" isLeaf="false" cachedFullName="double">
+        <elementDefinition Id="98c0acf2-b3e1-41d3-bbe0-3396e6dcef87" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="7ea83126-b4f9-477e-b8e5-09674886f258" name="List&lt;double&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;double&gt;">
+        <elementDefinition Id="2708befd-cc00-475e-b13e-5edfc5377d44" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6012a2b0-c97c-41d0-917e-e7a070445bd0" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="bf99d71a-ad71-4388-a60a-85b5d8c711e2" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d87bb544-08ab-41d9-92f1-731daa43a466" name="Dictionary&lt;Integer, Transaction&gt;" isAbstract="false" isLeaf="false" cachedFullName="Dictionary&lt;Integer, Transaction&gt;">
+        <elementDefinition Id="e8cf2e21-89a9-4b26-8a33-663836f34020" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="de97b149-e8a2-4cf8-8a70-9358a5b166ae" name="Dictionary&lt;int, Rebate&gt;" isAbstract="false" isLeaf="false" cachedFullName="Dictionary&lt;int, Rebate&gt;">
+        <elementDefinition Id="9ab24e0b-eee3-47e4-9dde-9aa16d8679b5" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="eb401a74-cc5b-4ffa-8bf3-28944e4e216e" name="Transaction" isAbstract="false" isLeaf="false" cachedFullName="sales501-classdiagram::Transaction">
+        <elementDefinition Id="e8a2b9c9-b186-4e03-8928-b62547841546" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="cd858edf-394f-40cd-a187-dffea49e2ecc" name="Rebate" isAbstract="false" isLeaf="false" cachedFullName="sales501-classdiagram::Rebate">
+        <elementDefinition Id="1353d731-54a6-457f-9cd6-cd2dfab1806c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="61487574-dd6a-48d1-9cb0-cedb54f67701" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
+        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="90c29a33-8f96-4a96-9567-2189ed4e995f" name="Transaction" isAbstract="false" isLeaf="false" cachedFullName="sales501-classdiagram::Transaction">
+        <elementDefinition Id="e8a2b9c9-b186-4e03-8928-b62547841546" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="14e4ef3f-61a2-4d2c-99ff-7a2178f5f07d" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
+        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b5353402-e043-4316-a7a4-83a8feb236f6" name="Rebate" isAbstract="false" isLeaf="false" cachedFullName="sales501-classdiagram::Rebate">
+        <elementDefinition Id="1353d731-54a6-457f-9cd6-cd2dfab1806c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="47539656-d0d5-4b7d-ba23-f06c9e27bd42" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c646fc58-d72a-4060-8d91-1ac577e5f899" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="52eebd5c-df7c-42d8-a104-2135d742fb74" name="sales501-classdiagram">
+    <elementDefinition Id="9b0e7e8c-51b9-48f8-9b64-0a55e8680628" />
+  </package>
+</logicalClassDesignerModel>
